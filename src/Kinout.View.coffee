@@ -13,6 +13,8 @@ KINOUT.View = ((knt, $$, undefined_) ->
         horizontal: 0
         vertical: 0
 
+    _slides = [[], []]
+
     MARKUP =
         GLOW: "<div class=\"glow\"></div>"
         COPYRIGHT: "<div class=\"copyright\">Made with <a href=\"http://tapquo.com/kinout/\">Kinout</a> by Tapquo Inc.</div>"
@@ -21,7 +23,8 @@ KINOUT.View = ((knt, $$, undefined_) ->
         $$("body").prepend(MARKUP.GLOW + MARKUP.COPYRIGHT)
         $$(".kinout").addClass(config.template) if config.template
 
-        _navigation_trick()
+        #@todo: Enable navigation trick
+        #_navigation_trick()
         return
 
     slide = (horizontal, vertical) ->
@@ -39,10 +42,11 @@ KINOUT.View = ((knt, $$, undefined_) ->
 
     _updateSlideIndexes = ->
         _index.horizontal = _updateSlides(".kinout>section", _index.horizontal)
-        _index.vertical = _updateSlides("section.present>section", _index.vertical)
+        _index.vertical = _updateSlides("section.present>article", _index.vertical)
         return
 
     _updateSlides = (selector, index) ->
+        console.log selector, index
         slides = Array::slice.call(document.querySelectorAll(selector))
         if slides.length
             index = Math.max(Math.min(index, slides.length - 1), 0)
