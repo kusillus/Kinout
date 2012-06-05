@@ -26,10 +26,10 @@ KINOUT.Events = ((knt, $$, undefined_) ->
         return
 
     _subscribeEvents = ->
-        document.addEventListener EVENTS.KEYDOWN, _onKeyDown, false
-        document.addEventListener EVENTS.TOUCH, _onTouch, false
-        document.addEventListener EVENTS.CLICK, _onClick, false
-        window.addEventListener EVENTS.HASHCHANGE, _onHashChange, false
+        $$(document).on EVENTS.KEYDOWN, _onKeyDown, false
+        $$(document).on EVENTS.TOUCH, _onTouch, false
+        $$(document).on EVENTS.CLICK, _onClick, false
+        $$(window).on EVENTS.HASHCHANGE, _onHashChange, false
         return
 
     _onKeyDown = (event) ->
