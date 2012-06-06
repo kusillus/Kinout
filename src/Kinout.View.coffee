@@ -13,7 +13,7 @@ KINOUT.View = ((knt, $$, undefined_) ->
         horizontal: 0
         vertical: 0
 
-    _slides = [[], []]
+    _current_slide = []
 
     MARKUP =
         GLOW: "<div class=\"glow\"></div>"
@@ -28,12 +28,27 @@ KINOUT.View = ((knt, $$, undefined_) ->
         return
 
     slide = (horizontal, vertical) ->
-        _saveNewIndexes horizontal, vertical
-        _updateSlideIndexes()
-        knt.Url.write _index.horizontal, _index.vertical
+        unless availableSteps()
+            _saveNewIndexes horizontal, vertical
+            _updateSlideIndexes()
+            knt.Url.write _index.horizontal, _index.vertical
         return
 
-    index = -> _index
+    availableSteps =() ->
+        available = false
+
+        _current_slide = $$("section.present > article.present [data-step]:not([data-run])") if _current_slide.length is 0
+        for element in _current_slide
+            steps = $$(element)
+            unless steps.data('run')
+                steps.data('run', 'success')
+                available = true
+                break
+        available
+
+    index = ->
+        'horizontal': _index.horizontal
+        'vertical': _index.vertical
 
     _saveNewIndexes = (horizontal, vertical) ->
         _index.horizontal = (if horizontal is `undefined` then _index.horizontal else horizontal)
@@ -46,7 +61,6 @@ KINOUT.View = ((knt, $$, undefined_) ->
         return
 
     _updateSlides = (selector, index) ->
-        console.log selector, index
         slides = Array::slice.call(document.querySelectorAll(selector))
         if slides.length
             index = Math.max(Math.min(index, slides.length - 1), 0)

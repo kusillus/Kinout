@@ -16,6 +16,27 @@
 
 <body>
     <div class="kinout">
+        <section>
+            <article>
+                <h1>funciona</h1>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h2><mark>Nerd</mark> behind #kinout<mark>JS</mark></h2>
+                <h3><mark>Nerd</mark> behind #kinout<mark>JS</mark></h3>
+                <p>
+                    <ol>
+                        <li>uno</li>
+                        <li data-step="opacity">dos</li>
+                        <li data-step="opacity">tres</li>
+                        <li data-step="opacity">cuatro</li>
+                        <li data-step="opacity">cinco</li>
+                    </ol>
+                </p>
+            </article>
+        </section>
+
         <section data-color="white">
             <h1>#kinout<mark>JS</mark></h1>
             <h4><mark>HTML5-based Keynote System.</mark></h4>
@@ -49,16 +70,15 @@
     </div>
     <script src="../../src/lib/QuoJS.js"></script>
     <script src="../../src/build/Kinout.js"></script>
-    <script src="../../src/build/kinout.Core.js"></script>
     <script src="../../src/build/kinout.Router.js"></script>
     <script src="../../src/build/Kinout.Events.js"></script>
     <script src="../../src/build/Kinout.Url.js"></script>
     <script src="../../src/build/Kinout.View.js"></script>
-
     <script>
-        KINOUT.init();
-
-        console.error(KINOUT);
+        $$(document).ready(function() {
+            console.error('1');
+            KINOUT.init();
+        });
     </script>
 </body>
 </html>
