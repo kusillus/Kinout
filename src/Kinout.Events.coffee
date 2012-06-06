@@ -14,6 +14,7 @@ KINOUT.Events = ((knt, $$, undefined_) ->
         CLICK: "click"
         TOUCH: "touchstart"
         HASHCHANGE: "hashchange"
+        MOUSEWHEEL: "mousewheel"
 
     DIRECTION =
         LEFT: "left"
@@ -29,6 +30,7 @@ KINOUT.Events = ((knt, $$, undefined_) ->
         $$(document).on EVENTS.KEYDOWN, _onKeyDown, false
         $$(document).on EVENTS.TOUCH, _onTouch, false
         $$(document).on EVENTS.CLICK, _onClick, false
+        $$(document).on EVENTS.MOUSEWHEEL, _onWheel, false
         $$(window).on EVENTS.HASHCHANGE, _onHashChange, false
         return
 
@@ -57,6 +59,9 @@ KINOUT.Events = ((knt, $$, undefined_) ->
         _analizePoint point
         return
 
+    _onWheel = (event) ->
+        return
+
     _onHashChange = -> knt.Url.read()
 
     _analizeKeyEvent = (event) ->
@@ -80,7 +85,7 @@ KINOUT.Events = ((knt, $$, undefined_) ->
             knt.Router.direction DIRECTION.RIGHT
         else if point.y < window_height
             knt.Router.direction DIRECTION.UP
-        else knt.Router.direction DIRECTION.DOWN    if point.y > window.innerHeight - window_height
+        else knt.Router.direction DIRECTION.DOWN if point.y > window.innerHeight - window_height
         return
 
     init: init
