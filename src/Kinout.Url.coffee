@@ -9,6 +9,10 @@
 
 KINOUT.Url = ((knt, undefined_) ->
 
+    ###
+        Read the page URL (hash) to get the current
+        navigational slide.
+    ###
     read = ->
         bits = window.location.hash.slice(2).split("/")
         indexh = (if bits[0] then parseInt(bits[0]) else 0)
@@ -18,7 +22,7 @@ KINOUT.Url = ((knt, undefined_) ->
 
     ###
         Updates the page URL (hash) to reflect the current
-        navigational state.
+        navigational slide.
     ###
     write = (horizontal_idx, vertical_idx) ->
         url = "/"
