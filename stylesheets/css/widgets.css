@@ -1,5 +1,6 @@
 .small{font-size:0.75em;}
 p{padding:16px 0 12px;}
+[data-step="opacity"]{opacity:0;}[data-step="opacity"][data-run]{opacity:100;}
 .kinout mark{background:none;color:#555555;}
 ol{list-style:decimal;list-style-position:inside;}
 li{line-height:1.25em;}
@@ -33,6 +34,3 @@ cite{float:right;padding:16px;font-size:0.75em;font-style:italic;line-height:1.0
 .quarter{width:25%;}
 pre{margin:0px;background:rgba(0, 0, 0, 0.5);text-align:left;padding:0px 0px 28px 32px;}
 code{color:#62b042;text-shadow:none;font-size:20px;font-family:monospace, courier;}
-.fifty{width:50%;}
-.thirty{width:33%;}
-.quarter{width:25%;}

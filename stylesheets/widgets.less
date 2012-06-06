@@ -1,4 +1,6 @@
-@import "mixins/soyjavi.less";
+@import "mixins.less";
+@import "variables.less";
+
 .small{
     font-size: 0.75em;
 }
@@ -7,6 +9,11 @@ p {
     padding: 16px 0 12px;
 }
 
+[data-step="opacity"] {
+    opacity: 0;
+
+    &[data-run] { opacity: 100; }
+}
 
 .kinout mark{
     background: none;
