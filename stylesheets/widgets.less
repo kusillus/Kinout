@@ -12,8 +12,33 @@ p {
 [data-step="opacity"] {
     opacity: 0;
 
-    &[data-run] { opacity: 100; }
+    &[data-run="success"] { opacity: 100; }
 }
+
+[data-step="boom"] {
+    opacity: 0;
+    .transform(scale(0));
+    .transition(all 300ms @defaultTrasition);
+    &[data-run="success"] {
+        opacity: 100;
+        .transform(scale(1));
+        -webkit-animation: BOOM 300ms;
+    }
+}
+
+
+@-webkit-keyframes BOOM {
+    0% { .transform(scale(0)); }
+    25% { .transform(scale(1.5)); }
+    100% { .transform(scale(1)); }
+}
+
+@-webkit-keyframes ZOOM-IN {
+    0% { .transform(scale(1.5)); }
+    100% { .transform(scale(1)); }
+}
+
+
 
 .kinout mark{
     background: none;
