@@ -28,8 +28,6 @@ a {
     }
 }
 
-p { padding: 16px 0 12px; }
-
 ol {
     list-style: decimal;
     list-style-position: inside;
@@ -77,6 +75,10 @@ h4 {
     width: 100%;
     height: 100%;
     text-align: center;
+
+    & article {
+
+    }
 
     & section, article {
         display: none;
@@ -134,11 +136,23 @@ h4 {
             }
 
             & header, & footer {
+                padding: 8px 0px;
+            }
+            & footer {
                 position: absolute;
                 width: 100%;
+                bottom: 0px;
             }
-            & header { top: 2%; }
-            & footer { bottom: 2%; }
+
+            & > div {
+                position: relative;
+                width: 90%;
+                left: 50%;
+                margin-top: 16px;
+                margin-left: -45%;
+
+                text-align: center;
+            }
         }
     }
 

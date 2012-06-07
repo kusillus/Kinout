@@ -11,13 +11,15 @@
         color: @grayLighter;
     }
 
-    & .framed {
-        //padding: 8px;
+    & .box {
         background: rgba(0,0,0,0.5);
         color: @white;
+        &.white {
+            background: rgba(255,255,255,0.5);
+            color: @gray;
+        }
     }
 }
-.kinout
 
     .kinout .left {
         float: left;
@@ -157,13 +159,29 @@ cite {
  * Columns
  *****************************************************************************/
 .column {
-    float: left;
-    width: 100%;
+    //float: left;
+    //width: 100%;
+    display: inline-block;
+    margin: 0% 2%;
 
-    &.fifty { width: 50%; }
-    &.thirty { width: 33%; }
-    &.quarter { width: 25%; }
+    &.big {
+        width: 44.2%;
+    }
+    &.medium {
+        width: 28%;
+    }
+    &.small {
+        width: 19.8%;
+    }
 
+    & img {
+        //display: block;
+        display: inline-block;
+        clear: right;
+        width: inherit;
+        text-align: center;
+        //text-align: center;
+    }
 }
 
 /*****************************************************************************
