@@ -25,7 +25,7 @@ KINOUT.View = ((knt, $$, undefined_) ->
         COPYRIGHT: "<div class=\"copyright\">Made with <a href=\"http://tapquo.com/kinout/\">Kinout</a> by Tapquo Inc.</div>"
 
     init = (config) ->
-        $$("body").prepend(MARKUP.GLOW + MARKUP.COPYRIGHT)
+        #$$("body").prepend(MARKUP.GLOW + MARKUP.COPYRIGHT)
         $$(".kinout").addClass(config.template) if config.template
 
         #@todo: Enable navigation trick
