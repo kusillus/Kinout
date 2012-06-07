@@ -13,7 +13,12 @@ KINOUT.View = ((knt, $$, undefined_) ->
         horizontal: 0
         vertical: 0
 
-    _current_slide = []
+    _steps = []
+
+    _step =
+        toShow: ":not([data-run='success'])"
+        toHide: "[data-run='success']"
+
 
     MARKUP =
         GLOW: "<div class=\"glow\"></div>"
@@ -27,24 +32,44 @@ KINOUT.View = ((knt, $$, undefined_) ->
         #_navigation_trick()
         return
 
-    slide = (horizontal, vertical) ->
-        unless availableSteps()
+    slide = (horizontal, vertical, next_step = true) ->
+        unless _availableSteps(next_step)
             _saveNewIndexes horizontal, vertical
             _updateSlideIndexes()
             knt.Url.write _index.horizontal, _index.vertical
         return
 
-    availableSteps =() ->
+    _availableSteps =(next_step) ->
         available = false
 
-        _current_slide = $$("section.present > article.present [data-step]:not([data-run])") if _current_slide.length is 0
-        for element in _current_slide
-            steps = $$(element)
-            unless steps.data('run')
-                steps.data('run', 'success')
-                available = true
-                break
+        selector = "section.present > article.present [data-step]"
+        selector += (if (next_step) then _step.toShow else _step.toHide)
+
+        #_steps = $$(selector) if _steps.length is 0
+        _steps = $$(selector)
+
+        if next_step
+            for element in _steps
+                step = $$(element)
+                unless step.data("run") is "success"
+                    step.data("run", "success")
+                    available = true
+                    break
+        else
+            i = _steps.length
+            while i > 0
+                step = $$(_steps[i-1])
+                if step.data("run") is "success"
+                    step.data("run", "")
+                    available = true
+                    break
+                i--
+
         available
+
+    _showSteps = (steps) ->
+
+
 
     index = ->
         'horizontal': _index.horizontal

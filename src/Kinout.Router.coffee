@@ -25,7 +25,7 @@ KINOUT.Router = ((knt, undefined_) ->
 
     _left = ->
         _index.horizontal--
-        knt.View.slide _index.horizontal, 0
+        knt.View.slide _index.horizontal, 0, false
         return
 
     _right = ->
@@ -35,7 +35,7 @@ KINOUT.Router = ((knt, undefined_) ->
 
     _up = ->
         _index.vertical--
-        knt.View.slide _index.horizontal, _index.vertical
+        knt.View.slide _index.horizontal, _index.vertical, false
         return
 
     _down = ->
