@@ -12,37 +12,102 @@
     <link rel="stylesheet" href="../../stylesheets/css/reset.css">
     <link rel="stylesheet" href="../../stylesheets/css/layout.css">
     <link rel="stylesheet" href="../../stylesheets/css/widgets.css">
+
+    <link href="../../src/lib/rainbow/themes/blackboard.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div class="kinout">
+
         <section>
             <article>
-                <h1>funciona</h1>
+                <h1>#kinout Title pq</h1>
+                <h2>normal subtitle pq</h2>
+                <h3>small subtitle pq</h3>
+                <h4>min subtitle</h4>
             </article>
         </section>
+
+        <section>
+            <article data-size="middle">
+                <blockquote>JavaScript doesn't suck! You're just doing it wrong.</blockquote>
+                <cite>Doug Crockford</cite>
+            </article>
+        </section>
+
         <section>
             <article>
-                <h2><mark>Nerd</mark> behind #kinout<mark>JS</mark></h2>
-                <h3><mark>Nerd</mark> behind #kinout<mark>JS</mark></h3>
+                <header class="framed">
+                    <h2>Header element</h2>
+                    <h4>Subheader element</h2>
+                </header>
+
+                <footer>
+                    <h2>Footer element</h2>
+                    <h4>Footer subelement</h2>
+                </footer>
+            </article>
+        </section>
+
+        <section data-image="http://farm6.staticflickr.com/5142/5837835862_81f956dd69.jpg" style="background-image: url(http://farm6.staticflickr.com/5142/5837835862_81f956dd69.jpg);">
+            <article data-size="middle">
+                <header>
+                <h2><mark>data-image</mark></h2>
+                </header>
+            </article>
+        </section>
+
+        <section>
+            <article>
+            <pre class="margin-top" contenteditable="true">
+<code data-language="javascript">$.ajax({
+    type: 'POST', // defaults to 'GET'
+    url: 'http://rest',
+    data: {user: 'soyjavi', pass: 'twitter'},
+    dataType: 'json', //'json', 'xml', 'html', or 'text'
+    async: true,
+    success: function(response) { ... },
+    error: function(xhr, type) { ... }
+});</code></pre>
+
+    <p data-step="move">alskdkas</p>
+           <pre class="margin-top" data-step="move alternate"><code data-language="javascript">
+$.ajax({
+    type: 'POST', // defaults to 'GET'
+    url: 'http://rest',
+    data: {user: 'soyjavi', pass: 'twitter'},
+    dataType: 'json', //'json', 'xml', 'html', or 'text'
+    async: true,
+    success: function(response) { ... },
+    error: function(xhr, type) { ... }
+});
+            </code></pre>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h2>data-<mark>step</mark></h2>
+                <h4>...a cool property for elements in slide.</h4>
                 <p>
                     <ol>
                         <li>uno</li>
-                        <li data-step="boom">dos</li>
-                        <li data-step="boom">tres</li>
-                        <li data-step="boom">cuatro</li>
-                        <li data-step="boom">cinco</li>
+                        <li data-step="fade">Step with "fade"</li>
+                        <li data-step="boom">Step with "boom"</li>
+                        <li data-step="zoom">Step with "zoom"</li>
+                        <li data-step="move">Step with "move"</li>
+                        <li data-step="move alternate">Step with "move alternate"</li>
                     </ol>
                 </p>
             </article>
 
             <article>
-                <h1>yeah!!!</h1>
-                <h2 data-step="boom">He dicho</h2>
+                <h1 data-step="move">yeah!!!</h1>
+                <h2 data-step="move alternate">He dicho</h2>
             </article>
         </section>
 
-        <section data-color="white" style="background-image: url('http://nyan.cat/cats/pikanyan.gif');">
+        <section data-color="white" style="background-image: url('');">
             <h1>#kinout<mark>JS</mark></h1>
             <h4><mark>HTML5-based Keynote System.</mark></h4>
         </section>
@@ -85,5 +150,10 @@
             KINOUT.init();
         });
     </script>
+
+
+    <script src="../../src/lib/rainbow/rainbow.min.js"></script>
+    <script src="../../src/lib/rainbow/language/generic.js"></script>
+
 </body>
 </html>
