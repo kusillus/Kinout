@@ -13,7 +13,7 @@ KINOUT =
         vertical: 0
 
     init: (config = {}) ->
-        @View.init config
+        @Element.init config
         @Events.init()
         @Url.read()
         return
