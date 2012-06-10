@@ -9,28 +9,32 @@
 
 KINOUT.View = ((knt, $$, undefined_) ->
 
-    _index =
-        horizontal: 0
-        vertical: 0
+    SELECTOR = knt.Constants.SELECTOR
+    MARKUP = knt.Constants.MARKUP
+    STYLE = knt.Constants.STYLE
+
+    _index = knt.index
 
     _steps = []
-
-    _step =
-        toShow: ":not([data-run='success'])"
-        toHide: "[data-run='success']"
-
-
-    MARKUP =
-        GLOW: "<div class=\"glow\"></div>"
-        COPYRIGHT: "<div class=\"copyright\">Made with <a href=\"http://tapquo.com/kinout/\">Kinout</a> by Tapquo Inc.</div>"
+    _el =
+        slides: []
+        progress: undefined
+        progress_vertical: undefined
 
     init = (config) ->
-        #$$("body").prepend(MARKUP.GLOW + MARKUP.COPYRIGHT)
-        $$(".kinout").addClass(config.template) if config.template
+        el = $$(".kinout")
+
+        _el.slides = el.children('section')
+
+        el.append(MARKUP.PROGRESS).append(MARKUP.PROGRESS_VERTICAL)
+        _el.progress = $$(SELECTOR.PROGRESS)
+        _el.progress_vertical = $$(SELECTOR.PROGRESS_VERTICAL)
+        el.addClass(config.template) if config.template
 
         #@todo: Enable navigation trick
-        #_navigation_trick()
+        #$$("body").prepend(MARKUP.GLOW + MARKUP.COPYRIGHT)
         return
+
 
     slide = (horizontal, vertical, next_step = true) ->
         unless _availableSteps(next_step)
@@ -39,37 +43,33 @@ KINOUT.View = ((knt, $$, undefined_) ->
             knt.Url.write _index.horizontal, _index.vertical
         return
 
-    _availableSteps =(next_step) ->
+    _availableSteps = (next_step) -> if (next_step) then _nextStep() else _previousStep()
+
+    _nextStep = () ->
         available = false
 
-        selector = "section.present > article.present [data-step]"
-        selector += (if (next_step) then _step.toShow else _step.toHide)
-
-        #_steps = $$(selector) if _steps.length is 0
-        _steps = $$(selector)
-
-        if next_step
-            for element in _steps
-                step = $$(element)
-                unless step.data("run") is "success"
-                    step.data("run", "success")
-                    available = true
-                    break
-        else
-            i = _steps.length
-            while i > 0
-                step = $$(_steps[i-1])
-                if step.data("run") is "success"
-                    step.data("run", "")
-                    available = true
-                    break
-                i--
-
+        _steps = $$(SELECTOR.STEP + SELECTOR.STEP_TO_SHOW)
+        for element in _steps
+            step = $$(element)
+            unless step.data("run") is "success"
+                step.data("run", "success")
+                available = true
+                break
         available
 
-    _showSteps = (steps) ->
+    _previousStep = () ->
+        available = false
 
-
+        _steps = $$(SELECTOR.STEP + SELECTOR.STEP_TO_HIDE)
+        i = _steps.length
+        while i > 0
+            step = $$(_steps[i-1])
+            if step.data("run") is "success"
+                step.data("run", "")
+                available = true
+                break
+            i--
+        available
 
     index = ->
         'horizontal': _index.horizontal
@@ -81,31 +81,45 @@ KINOUT.View = ((knt, $$, undefined_) ->
         return
 
     _updateSlideIndexes = ->
-        _index.horizontal = _updateSlides(".kinout>section", _index.horizontal)
-        _index.vertical = _updateSlides("section.present>article", _index.vertical)
+        _index.horizontal = _updateSlides(SELECTOR.SLIDE, _index.horizontal)
+        _index.vertical = _updateSlides(SELECTOR.SUBSLIDE, _index.vertical)
+        _updateProgress()
         return
+
+    _updateProgress = ->
+        horizontal_progess = parseInt( (_index.horizontal * 100) / (_el.slides.length - 1))
+        window.requestAnimationFrame ->
+            _el.progress.style('width', "#{horizontal_progess}%")
+
+        articles =  $$(_el.slides[_index.horizontal]).children('article');
+        if articles.length > 0
+            vertical_progress = parseInt( ((_index.vertical + 1) * 100) / articles.length)
+            window.requestAnimationFrame ->
+                _el.progress_vertical.style('height', "#{vertical_progress}%")
+        else
+            window.requestAnimationFrame ->
+                _el.progress_vertical.style('height', "0%")
 
     _updateSlides = (selector, index) ->
         slides = Array::slice.call(document.querySelectorAll(selector))
         if slides.length
             index = Math.max(Math.min(index, slides.length - 1), 0)
-            slides[index].setAttribute "class", "present"
-            slides.slice(0, index).map (element) ->
-                element.setAttribute "class", "past"
-
-            slides.slice(index + 1).map (element) ->
-                element.setAttribute "class", "future"
+            #window.requestAnimationFrame ->
+            render slides, index
         else
             index = 0
         index
 
-    _navigation_trick = () ->
-        message = (if navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) then "Tap to navigate" else "Navigate via keyboard")
-        $$("section:first-child").append("<h4 class=\"transparent\">(" + message + ")</h4>")
-        return
+    render = (slides, index) ->
+        slides[index].setAttribute "class", STYLE.PRESENT
+        slides.slice(0, index).map (element) ->
+            element.setAttribute "class", STYLE.PAST
+        slides.slice(index + 1).map (element) ->
+            element.setAttribute "class", STYLE.FUTURE
 
     init: init
     slide: slide
     index: index
+    render: render
 
 )(KINOUT, Quo)
