@@ -6,14 +6,17 @@
  * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
 ###
 
-KINOUT = {
-    VERSION: "0.6"
+KINOUT =
+    slides: 0
+    index:
+        horizontal: 0
+        vertical: 0
 
     init: (config = {}) ->
         @View.init config
         @Events.init()
         @Url.read()
         return
-}
+
 
 window.KINOUT = KINOUT
