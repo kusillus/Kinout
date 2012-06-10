@@ -21,10 +21,22 @@
 
         <section>
             <article>
-                <h1>#kinout Title pq</h1>
-                <h2>normal subtitle pq</h2>
-                <h3>small subtitle pq</h3>
-                <h4>min subtitle</h4>
+                <h1>#kinout<mark>JS</mark></h1>
+                <h4><mark>HTML5 based Keynote System.</mark></h4>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <header class="box">
+                    <h2>Header element</h2>
+                    <h4>Subheader element</h2>
+                </header>
+
+                <footer class="box">
+                    <h2>Footer element</h2>
+                    <h4>Footer subelement</h2>
+                </footer>
             </article>
         </section>
 
@@ -171,23 +183,28 @@ $.ajax({
         <section data-color="red" data-color="image">
             <article>
                 <h1>first slide</h1>
+                <h3><mark>Press down to view the subslide</mark></h3>
             </article>
             <article>
                 <h1>second slide</h1>
+                <h3><mark>Press down to view the subslide</mark></h3>
+            </article>
+            <article>
+                <h1>third slide</h1>
+                <h3><mark>Right! Now you can press right key</mark></h3>
             </article>
         </section>
 
         <section>
             <h2><mark>Nerd</mark> behind #kinout<mark>JS</mark></h2>
             <h4><mark>...dangerous with TextMate in his hands</span></h4>
-
-                <p class="vertical">
-                    <img src="assets/images/soyjavi.jpg" class="bordered size_256 center">
-                </p>
-                <p>
-                    <h4>Javi Jiménez Villar</h4>
-                    <h3><a href="#"><mark>@soyjavi</mark></a></h3>
-                </p>
+            <p class="vertical">
+                <img src="assets/images/soyjavi.jpg" class="bordered size_256 center">
+            </p>
+            <p>
+                <h4>Javi Jiménez Villar</h4>
+                <h3><a href="#"><mark>@soyjavi</mark></a></h3>
+            </p>
         </section>
 
         <section>
@@ -195,14 +212,15 @@ $.ajax({
         </section>
     </div>
     <script src="../../src/lib/QuoJS.js"></script>
+    <script src="../../src/lib/raf.js"></script>
     <script src="../../src/build/Kinout.js"></script>
+    <script src="../../src/build/Kinout.Constants.js"></script>
     <script src="../../src/build/kinout.Router.js"></script>
     <script src="../../src/build/Kinout.Events.js"></script>
     <script src="../../src/build/Kinout.Url.js"></script>
     <script src="../../src/build/Kinout.View.js"></script>
     <script>
         $$(document).ready(function() {
-            console.error('1');
             KINOUT.init();
         });
     </script>
