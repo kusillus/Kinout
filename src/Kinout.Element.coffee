@@ -23,6 +23,7 @@ KINOUT.Element = ((knt, undefined_) ->
     init = (config) ->
         _el.parent = $$(SELECTOR.KINOUT)
         _el.parent.addClass(config.template) if config.template
+        _el.parent.append(MARKUP.GLOW)
 
     slides = () ->
         unless _el.slides.length > 0
