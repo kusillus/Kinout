@@ -28,13 +28,34 @@
 
         <section>
             <article>
-                <header class="box">
+                <header>
                     <h2>Header element</h2>
+                    <h4>Header subelement</h2>
+                </header>
+
+                <footer>
+                    <h2>Footer element</h2>
+                    <h4>Footer subelement</h2>
+                </footer>
+
+                <div>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </div>
+                <div>
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <header class="box">
+                    <h2>Header element (.box)</h2>
                     <h4>Subheader element</h2>
                 </header>
 
-                <footer class="box">
-                    <h2>Footer element</h2>
+                <footer class="box white">
+                    <h2>Footer element (.box .white)</h2>
                     <h4>Footer subelement</h2>
                 </footer>
             </article>
@@ -47,72 +68,47 @@
             </article>
         </section>
 
-        <section>
+        <section data-color="red" data-color="image">
             <article>
-                <header class="box">
-                    <h2>Header element</h2>
-                    <h4>Subheader element</h2>
-                </header>
-
-                <footer class="box white">
-                    <h2>Footer element</h2>
-                    <h4>Footer subelement</h2>
-                </footer>
+                <h1>vertical slides</h1>
+                <h3><mark>(press down to view next slide)</mark></h3>
+            </article>
+            <article>
+                <h1>second slide</h1>
+                <h3><mark>(press down to view next slide)</mark></h3>
+            </article>
+            <article>
+                <h1>third slide</h1>
+                <h3><mark>Right! Now you can press right key.</mark></h3>
             </article>
         </section>
 
         <section>
             <article>
-                <header>
-                    <h2>Columns</h2>
-                    <h3>alskdakd</h3>
-                </header>
-
+                <h2>data-<mark>step</mark></h2>
+                <h4>...a cool property for elements in slide.</h4>
 
                 <div>
-                    <span class="column box big">
-                        <img src="http://tapquo.com/images/team-javi.jpg"/>
-                        javi
-                    </span>
-                    <span class="column box big">
-                        <img src="http://tapquo.com/images/team-aitor.jpg"/>
-                        aitor
-                    </span>
+
+                </div>
+                <div>
+                    <ul>
+                        <li><mark>press down to view next step</mark></li>
+                        <li data-step="fade">Step with "fade"</li>
+                        <li data-step="boom">Step with "boom"</li>
+                        <li data-step="zoom">Step with "zoom"</li>
+                        <li data-step="move">Step with "move"</li>
+                        <li data-step="move alternate">Step with "move alternate"</li>
+                        <li data-step="fade"><mark>press down to see in vertical slide</mark></li>
+                    </ul>
                 </div>
 
                 <div>
-                    <span class="column box medium">
-                        <img src="http://tapquo.com/images/team-javi.jpg"/>
-                        javi
-                    </span>
-                    <span class="column box medium">
-                        <img src="http://tapquo.com/images/team-aitor.jpg"/>
-                        aitor
-                    </span>
-                    <span class="column box medium">
-                        <img src="http://tapquo.com/images/team-janire.jpg"/>
-                        janire
-                    </span>
-                </div>
+            </article>
 
-                <div>
-                    <span class="column box small">
-                        <img src="http://tapquo.com/images/team-javi.jpg"/>
-                        javi
-                    </span>
-                    <span class="column box small">
-                        <img src="http://tapquo.com/images/team-aitor.jpg"/>
-                        aitor
-                    </span>
-                    <span class="column box small">
-                        <img src="http://tapquo.com/images/team-janire.jpg"/>
-                        janire
-                    </span>
-                    <span class="column box small">
-                        <img src="http://tapquo.com/images/team-mikel.jpg"/>
-                        mikel
-                    </span>
-                </div>
+            <article>
+                <h1 data-step="move">yeah!!!</h1>
+                <h2 data-step="move alternate"><mark>it works!</mark></h2>
             </article>
         </section>
 
@@ -127,7 +123,13 @@
 
         <section>
             <article>
-            <pre class="margin-top" contenteditable="true">
+                <header>
+                    <h2>Embedded code</h2>
+                    <h4><mark>a great way to show your code</mark></h4>
+                </header>
+
+                <div>
+                    <pre class="margin-top" contenteditable="true">
 <code data-language="javascript">$.ajax({
     type: 'POST', // defaults to 'GET'
     url: 'http://rest',
@@ -136,11 +138,12 @@
     async: true,
     success: function(response) { ... },
     error: function(xhr, type) { ... }
-});</code></pre>
+});</code>          </pre>
 
-    <p data-step="move">alskdkas</p>
-           <pre class="margin-top" data-step="move alternate"><code data-language="javascript">
-$.ajax({
+                    <h4><mark>Press to view code with data-step</mark></h4>
+
+           <pre class="margin-top" data-step="move alternate">
+<code data-language="javascript">$.ajax({
     type: 'POST', // defaults to 'GET'
     url: 'http://rest',
     data: {user: 'soyjavi', pass: 'twitter'},
@@ -148,67 +151,108 @@ $.ajax({
     async: true,
     success: function(response) { ... },
     error: function(xhr, type) { ... }
-});
-            </code></pre>
+});</code>          </pre>
+                </div>
+            </article>
+        </section>
+
+
+        <section>
+            <article>
+                <header>
+                    <h2>Columns</h2>
+                    <h4><mark>divide your slide easily</mark></h4>
+                </header>
+
+                <div>
+                    <span class="column box big">
+                        .box .big
+                    </span>
+                    <span class="column box big">
+                        .box .big
+                    </span>
+                </div>
+
+                <div>
+                    <span class="column box medium">
+                        .box .medium
+                    </span>
+                    <span class="column box medium">
+                        .box .medium
+                    </span>
+                    <span class="column box medium">
+                        .box .medium
+                    </span>
+                </div>
+
+                <div>
+                    <span class="column box small">
+                         .box .small
+                    </span>
+                    <span class="column box small">
+                        .box .small
+                    </span>
+                    <span class="column box small">
+                        .box .small
+                    </span>
+                    <span class="column box small">
+                        .box .small
+                    </span>
+                </div>
+
+                <div><mark>Example with images</mark></div>
+                <div>
+                    <span class="column small">
+                        <img src="http://tapquo.com/images/team-javi.jpg" class="bordered size_200"/>
+                        <h4><a href="http://twitter.com/soyjavi"><mark>@soyjavi</mark></a></h4>
+                    </span>
+                    <span class="column small">
+                        <img src="http://tapquo.com/images/team-aitor.jpg" class="bordered size_200"/>
+                        <h4><a href="http://twitter.com/soyjavi"><mark>@aitorjvoa</mark></a></h4>
+                    </span>
+                    <span class="column small">
+                        <img src="http://tapquo.com/images/team-mikel.jpg" class="bordered size_200"/>
+                        <h4><a href="http://twitter.com/soyjavi"><mark>@mikel_ade</mark></a></h4>
+                    </span>
+                    <span class="column small">
+                        <img src="http://tapquo.com/images/team-janire.jpg" class="bordered size_200"/>
+                        <h4><a href="http://twitter.com/soyjavi"><mark>@janixy</mark></a></h4>
+                    </span>
+                </div>
             </article>
         </section>
 
         <section>
             <article>
-                <h2>data-<mark>step</mark></h2>
-                <h4>...a cool property for elements in slide.</h4>
-                <p>
-                    <ol>
-                        <li>uno</li>
-                        <li data-step="fade">Step with "fade"</li>
-                        <li data-step="boom">Step with "boom"</li>
-                        <li data-step="zoom">Step with "zoom"</li>
-                        <li data-step="move">Step with "move"</li>
-                        <li data-step="move alternate">Step with "move alternate"</li>
-                    </ol>
-                </p>
-            </article>
+                <header>
+                    <h2><mark>Nerd</mark> behind #kinout<mark>JS</mark></h2>
+                    <h4><mark>...dangerous with TextMate in his hands</mark></h4>
+                </header>
+                <div class="top">
+                    <span class="column big">
+                        <img src="assets/images/soyjavi.jpg" class="bordered size_256">
+                        <h4>Javi Jiménez Villar</h4>
+                        <h4><a href="http://twitter.com/soyjavi"><mark>@soyjavi</mark></a></h4>
+                    </span>
 
-            <article>
-                <h1 data-step="move">yeah!!!</h1>
-                <h2 data-step="move alternate">He dicho</h2>
-            </article>
-        </section>
-
-        <section data-color="white" style="background-image: url('');">
-            <h1>#kinout<mark>JS</mark></h1>
-            <h4><mark>HTML5-based Keynote System.</mark></h4>
-        </section>
-
-        <section data-color="red" data-color="image">
-            <article>
-                <h1>first slide</h1>
-                <h3><mark>Press down to view the subslide</mark></h3>
-            </article>
-            <article>
-                <h1>second slide</h1>
-                <h3><mark>Press down to view the subslide</mark></h3>
-            </article>
-            <article>
-                <h1>third slide</h1>
-                <h3><mark>Right! Now you can press right key</mark></h3>
+                    <span class="column big right">
+                        <ul>
+                            <li><mark>Felizmente</mark> casado <mark>con Leire</mark></li>
+                            <li><mark>CEO y Cofundador de</mark> Tapquo</li>
+                            <li><mark>Creador de</mark> LungoJS<mark> y </mark>quoJS</li>
+                            <li class="text size2"><mark>Evangelizador de</mark> HTML5</li>
+                            <li class="text size3"><mark>Amante de </mark> JavaScript</li>
+                            <li class="text size5"><mark>Miembro de la</mark> W3C</li>
+                        </ul>
+                    </span>
+                </div>
             </article>
         </section>
 
         <section>
-            <h2><mark>Nerd</mark> behind #kinout<mark>JS</mark></h2>
-            <h4><mark>...dangerous with TextMate in his hands</span></h4>
-            <p class="vertical">
-                <img src="assets/images/soyjavi.jpg" class="bordered size_256 center">
-            </p>
-            <p>
-                <h4>Javi Jiménez Villar</h4>
-                <h3><a href="#"><mark>@soyjavi</mark></a></h3>
-            </p>
-        </section>
-
-        <section>
-            <h1>...coming <mark>soon</mark>.</h1>
+            <article>
+                <h1>...coming <mark>soon</mark>.</h1>
+            </article>
         </section>
     </div>
     <script src="../../src/lib/QuoJS.js"></script>

@@ -1,6 +1,6 @@
 @import "mixins.less";
 @import "variables.less";
-@import url("http://fonts.googleapis.com/css?family=Comfortaa:400,700");
+//@import url("http://fonts.googleapis.com/css?family=Comfortaa:400,700");
 
 /*****************************************************************************
  * General
@@ -17,7 +17,7 @@ html, body {
 
     font-family: 'Comfortaa', Helvetica, Arial, sans-serif;
     font-weight: normal;
-    font-size: 32px;
+    font-size: 36px;
     line-height: 1.0em;
 }
 
@@ -39,7 +39,7 @@ li { line-height: 1.25em; }
 /*****************************************************************************
  * Titles
  *****************************************************************************/
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.04em;
     font-weight: bold;
     line-height: 100%;
@@ -47,24 +47,12 @@ h1, h2, h3, h4 {
 
 h1 {
     margin-top: 20%;
-    font-size: 3.6em;
-    //background: red;
+    font-size: 3.5em;
 }
-
-h2 {
-    font-size: 1.8em;
-    //background: blue;
-}
-
-h3 {
-    font-size: 1.25em;
-    //background: green;
-}
-
-h4 {
-    font-size: 1.0em;
-    //background: yellow;
-}
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.1em; }
+h5 { font-size: 1.1em; }
 
 /*****************************************************************************
  * .KINOUT
@@ -105,10 +93,6 @@ h4 {
 
             & span { width: 6px; height: 0%; }
         }
-    }
-
-    & article {
-
     }
 
     & section, article {
@@ -166,23 +150,25 @@ h4 {
                 .transform( translate3d(0, 50%, 0));
             }
 
-            & header, & footer {
-                padding: 8px 0px;
-            }
+            & header, & footer { padding: 12px 0px; }
+
             & footer {
                 position: absolute;
                 width: 100%;
-                bottom: 4px;
+                padding-bottom: 14px;
+                bottom: 0px;
             }
 
             & > div {
                 position: relative;
-                width: 90%;
+                width: 80%;
                 left: 50%;
-                margin-top: 16px;
-                margin-left: -45%;
+                margin-top: 2%;
+                margin-left: -40%;
 
-                text-align: center;
+                &.top {
+                    margin-top: 10%;
+                }
             }
         }
     }
@@ -216,10 +202,4 @@ h4 {
             }
         }
     }
-}
-
-
-/* 3D Slides */
-.circle{
-
 }

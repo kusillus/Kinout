@@ -1,7 +1,6 @@
 @import "mixins.less";
 @import "variables.less";
 
-
 /*****************************************************************************
  * Classes
  *****************************************************************************/
@@ -19,19 +18,11 @@
             color: @gray;
         }
     }
+
+    & .left { float: left; }
+    & .right { float: right; }
+    & .center { margin: 0 auto; }
 }
-
-    .kinout .left {
-        float: left;
-    }
-
-    .kinout .right {
-        float: right;
-    }
-
-    .kinout .center {
-        margin: 0 auto;
-    }
 
 
 /*****************************************************************************
@@ -79,10 +70,10 @@
 
 
 /*****************************************************************************
- * ?
+ * sizes & decorators
  *****************************************************************************/
 .bordered {
-    border: 8px solid #fff;
+    border: solid 8px @grayLighter;
 }
 
 .transparent {
@@ -96,18 +87,25 @@
     background-image: -webkit-radial-gradient(circle, rgba(255,255,255,0.25), rgba(0,0,0,0));
  }
 
+.size_128 { height: 128px; }
+.size_200 { height: 200px; }
+.size_256 { height: 256px; }
+.size_400 { height: 440px; }
 
-.size_128 {
-    height: 128px;
+.text {
+    //line-height: 1.0em;
+    &.size1 { font-size: 1.1em; }
+    &.size2 { font-size: 1.2em; }
+    &.size3 { font-size: 1.3em; }
+    &.size4 { font-size: 1.4em; }
+    &.size5 { font-size: 1.5em; }
+    &.size6 { font-size: 1.6em; }
+    &.size7 { font-size: 1.7em; }
+    &.size8 { font-size: 1.8em; }
+    &.size9 { font-size: 1.9em; }
+    &.size10 { font-size: 2.0em; }
 }
 
-.size_256 {
-    height: 256px;
-}
-
-.size_400 {
-    height: 440px;
-}
 
 /*****************************************************************************
  * Blockquote
@@ -159,28 +157,18 @@ cite {
  * Columns
  *****************************************************************************/
 .column {
-    //float: left;
-    //width: 100%;
     display: inline-block;
-    margin: 0% 2%;
+    top: 0px;
+    margin: 0% 1%;
 
     &.big {
-        width: 44.2%;
+        width: 44.9%;
     }
     &.medium {
-        width: 28%;
+        width: 29%;
     }
     &.small {
-        width: 19.8%;
-    }
-
-    & img {
-        //display: block;
-        display: inline-block;
-        clear: right;
-        width: inherit;
-        text-align: center;
-        //text-align: center;
+        width: 21.05%;
     }
 }
 
@@ -189,13 +177,18 @@ cite {
  *****************************************************************************/
 pre {
     position: relative;
+    width: 640px;
     left: 50%;
-    margin-left: -320px !important;
-    max-width: 640px;
+    margin: 1% 0% 1% -320px !important;
+    padding: 0px;
+
+    background: #0B1022;
+    color: white;
 
     text-align: left;
-    font-size: 100%;
+    font-size: 14px;
     line-height: 150%;
+    word-wrap: break-word;
 }
 
 /*****************************************************************************
