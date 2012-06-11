@@ -1,6 +1,5 @@
 @import "mixins.less";
 @import "variables.less";
-//@import url("http://fonts.googleapis.com/css?family=Comfortaa:400,700");
 
 /*****************************************************************************
  * General
@@ -23,9 +22,10 @@ html, body {
 
 a {
     text-decoration: none;
+    color: @gray;
 
     &:hover, &:active {
-        color: red;
+        color: @gray;
     }
 }
 
@@ -64,36 +64,6 @@ h5 { font-size: 1.1em; }
     width: 100%;
     height: 100%;
     text-align: center;
-
-    & progress {
-        position: absolute;
-        width: 100%;
-        height: 4px;
-        bottom: 0px;
-        z-index: 1980;
-        -webkit-appearance: none;
-
-        & span {
-            display: block;
-            float: left;
-            width: 0%;
-            height: 4px;
-            background: rgba(0,0,0,0.75);
-
-            .transition(all, 600ms, @easeOutCubic);
-        }
-
-        &.vertical {
-            width: 6px;
-            height: 100%;
-            top: 0px;
-            left: none;
-            right: -2px;
-            bottom: none;
-
-            & span { width: 6px; height: 0%; }
-        }
-    }
 
     & section, article {
         display: none;

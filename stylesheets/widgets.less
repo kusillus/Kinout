@@ -10,11 +10,41 @@
         color: @grayLighter;
     }
 
+    & progress {
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        bottom: 0px;
+        z-index: 1980;
+        -webkit-appearance: none;
+
+        & span {
+            display: block;
+            float: left;
+            width: 0%;
+            height: 4px;
+            background: rgba(0,0,0,0.75);
+
+            .transition(all, 600ms, @easeOutCubic);
+        }
+
+        &.vertical {
+            width: 6px;
+            height: 100%;
+            top: 0px;
+            left: none;
+            right: -2px;
+            bottom: none;
+
+            & span { width: 6px; height: 0%; }
+        }
+    }
+
     & .box {
         background: rgba(0,0,0,0.5);
         color: @white;
         &.white {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.2);
             color: @gray;
         }
     }
@@ -44,9 +74,7 @@
 
     [data-step="zoom"] {
         .transform(scale(2));
-        &[data-run="success"] {
-            .transform(scale(1));
-        }
+        &[data-run="success"] { .transform(scale(1)); }
     }
         @-webkit-keyframes BOOM {
             0% { .transform(scale(0)); }
@@ -56,35 +84,25 @@
 
     [data-step="move"] {
         .transform(translateX(100%));
-        &[data-run="success"] {
-            .transform(translateX(0%));
-        }
+        &[data-run="success"] { .transform(translateX(0%)); }
     }
 
     [data-step="move alternate"] {
         .transform(translateX(-100%));
-        &[data-run="success"] {
-            .transform(translateX(0%));
-        }
+        &[data-run="success"] { .transform(translateX(0%)); }
     }
 
 
 /*****************************************************************************
  * sizes & decorators
  *****************************************************************************/
-.bordered {
-    border: solid 8px @grayLighter;
-}
-
-.transparent {
-    color: rgba(0,0,0,0.1);
-    text-shadow: none;
-}
+.bordered { border: solid 8px @grayLighter; }
 
 .glow {
+    position: absolute;
     width: 100%;
     height: 100%;
-    background-image: -webkit-radial-gradient(circle, rgba(255,255,255,0.25), rgba(0,0,0,0));
+    .radial-gradient(~'50% 50%,', circle, ~',rgba(255,255,255,0.1) 0%', ~',rgba(0,0,0,0.2) 90%');
  }
 
 .size_128 { height: 128px; }
@@ -161,15 +179,9 @@ cite {
     top: 0px;
     margin: 0% 1%;
 
-    &.big {
-        width: 44.9%;
-    }
-    &.medium {
-        width: 29%;
-    }
-    &.small {
-        width: 21.05%;
-    }
+    &.big { width: 44.9%; }
+    &.medium { width: 29%; }
+    &.small { width: 21.05%; }
 }
 
 /*****************************************************************************
@@ -183,7 +195,7 @@ pre {
     padding: 0px;
 
     background: #0B1022;
-    color: white;
+    color: @white;
 
     text-align: left;
     font-size: 14px;
