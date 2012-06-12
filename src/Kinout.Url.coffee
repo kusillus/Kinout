@@ -26,8 +26,8 @@ KINOUT.Url = ((knt, undefined_) ->
     ###
     write = (horizontal_idx, vertical_idx) ->
         url = "/"
-        url += horizontal_idx  if horizontal_idx > 0 or vertical_idx > 0
-        url += "/" + vertical_idx  if vertical_idx > 0
+        url += horizontal_idx if horizontal_idx > 0 or vertical_idx > 0
+        url += "/" + vertical_idx if vertical_idx > 0
         window.location.hash = url
         return
 

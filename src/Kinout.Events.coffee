@@ -54,6 +54,8 @@ KINOUT.Events = ((knt, $$, undefined_) ->
         return
 
     _onClick = (event) ->
+        if $$(event.target).closest('a').length
+            return;
         event.preventDefault()
         point =
             x: event.clientX

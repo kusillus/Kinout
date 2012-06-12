@@ -10,8 +10,8 @@
 KINOUT.Constants =
 
     MARKUP:
-        GLOW: "<div class=\"glow\"></div>"
-        COPYRIGHT: "<div class=\"copyright\"><a href=\"http://kinout.tapquo.com/\">kinout</a>by tapquo</div>"
+        GLOW: "<div class='glow'></div>"
+        COPYRIGHT: "<div class='copyright'><a href='http://kinout.tapquo.com/'>kinout</a>by tapquo</div>"
         PROGRESS:
             horizontal: "<div class='progress horizontal' value='0' max='100'><span></span></div>"
             vertical: "<div class='progress vertical' value='0' max='100'><span></span></div>"
