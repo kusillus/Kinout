@@ -47,7 +47,7 @@ KINOUT.View = ((knt, $$, undefined_) ->
         # Vertical
         vertical = 0
         subslides = knt.Element.subslides(_index.horizontal)
-        if subslides.length > 0
+        if subslides.length > 1
             vertical = parseInt( ((_index.vertical + 1) * 100) / subslides.length)
         window.requestAnimationFrame -> knt.Element.progress("vertical", vertical)
 

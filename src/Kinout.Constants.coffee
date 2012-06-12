@@ -11,10 +11,10 @@ KINOUT.Constants =
 
     MARKUP:
         GLOW: "<div class=\"glow\"></div>"
-        COPYRIGHT: "<div class=\"copyright\">Made with <a href=\"http://tapquo.com/kinout/\">Kinout</a> by Tapquo Inc.</div>"
+        COPYRIGHT: "<div class=\"copyright\"><a href=\"http://kinout.tapquo.com/\">kinout</a>by tapquo</div>"
         PROGRESS:
-            horizontal: "<progress class='horizontal' value='0' max='100'><span></span></progress>"
-            vertical: "<progress class='vertical' value='0' max='100'><span></span></progress>"
+            horizontal: "<div class='progress horizontal' value='0' max='100'><span></span></div>"
+            vertical: "<div class='progress vertical' value='0' max='100'><span></span></div>"
 
     SELECTOR:
         KINOUT: ".kinout"
@@ -26,8 +26,8 @@ KINOUT.Constants =
         STEP_TO_HIDE: "[data-run='success']"
 
         PROGRESS:
-            horizontal: "progress.horizontal"
-            vertical: "progress.vertical"
+            horizontal: ".progress.horizontal"
+            vertical: ".progress.vertical"
 
     STYLE:
         PAST: "past"

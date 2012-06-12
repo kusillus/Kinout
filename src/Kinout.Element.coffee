@@ -23,7 +23,7 @@ KINOUT.Element = ((knt, undefined_) ->
     init = (config) ->
         _el.parent = $$(SELECTOR.KINOUT)
         _el.parent.addClass(config.template) if config.template
-        _el.parent.append(MARKUP.GLOW)
+        _el.parent.prepend(MARKUP.GLOW).append(MARKUP.COPYRIGHT)
 
     slides = () ->
         unless _el.slides.length > 0
@@ -41,7 +41,6 @@ KINOUT.Element = ((knt, undefined_) ->
 
         property = if type is "horizontal" then "width" else "height"
         _el.progress[type].style property, "#{value}%"
-        console.error _el.progress
         return
 
     _nextStep = () ->

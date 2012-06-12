@@ -1,4 +1,6 @@
 .kinout mark{background:none;color:#cccccc;}
+.kinout .progress{position:absolute;width:100%;height:4px;bottom:0px;z-index:1980;}.kinout .progress span{display:block;float:left;width:0%;height:4px;background:rgba(0, 0, 0, 0.75);-webkit-transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);-moz-transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);-ms-transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);-o-transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);}
+.kinout .progress.vertical{width:6px;height:100%;top:0px;left:none;right:-2px;bottom:none;}.kinout .progress.vertical span{width:6px;height:0%;}
 .kinout .box{background:rgba(0, 0, 0, 0.5);color:#ffffff;}.kinout .box.white{background:rgba(255, 255, 255, 0.2);color:#555555;}
 .kinout .left{float:left;}
 .kinout .right{float:right;}
@@ -14,6 +16,9 @@
 .size_200{height:200px;}
 .size_256{height:256px;}
 .size_400{height:440px;}
+.text{line-height:1.0em;}.text.size07{font-size:0.7em;}
+.text.size08{font-size:0.8em;}
+.text.size09{font-size:0.9em;}
 .text.size1{font-size:1.1em;}
 .text.size2{font-size:1.2em;}
 .text.size3{font-size:1.3em;}
@@ -33,4 +38,3 @@ cite{float:right;padding:16px;font-size:0.9em;font-style:italic;font-weight:bold
 .column.medium{width:29%;}
 .column.small{width:21.05%;}
 pre{position:relative;width:640px;left:50%;margin:1% 0% 1% -320px !important;padding:0px;background:#0B1022;color:#ffffff;text-align:left;font-size:14px;line-height:150%;word-wrap:break-word;}
-.copyright{position:absolute;bottom:0px;width:100%;z-index:1980;padding:7px 0 4px;color:#000;text-align:center;text-shadow:0px 1px 0px rgba(255, 255, 255, 0.5);background:rgba(0, 0, 0, 0.1);opacity:0.6;font-size:16px;}.copyright a{font-weight:bold;text-decoration:none;color:#000;}
