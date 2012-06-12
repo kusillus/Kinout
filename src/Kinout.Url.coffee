@@ -15,8 +15,8 @@ KINOUT.Url = ((knt, undefined_) ->
     ###
     read = ->
         bits = window.location.hash.slice(2).split("/")
-        indexh = parseInt(bits[0]) || 0
-        indexv = parseInt(bits[1]) || 0
+        indexh = (if bits[0] then parseInt(bits[0]) else 0)
+        indexv = (if bits[1] then parseInt(bits[1]) else 0)
         knt.View.slide indexh, indexv
         return
 
