@@ -25,6 +25,11 @@ do
     echo "     - "$KINOUT_NAMESPACE$file
     FILES_TO_COMPILE=$FILES_TO_COMPILE" --js "$KINOUT_SOURCES/$KINOUT_NAMESPACE$file
 done
+
+#create build dir
+echo -e "\033[0m     - [CREATE]: "$BUILDPATH"\033[0m"
+mkdir $BUILDPATH
+
 echo -e "\033[0m     - [BUILD]: "$BUILDPATH"\033[0m"
 #MINIFIED Version
 java -jar $COMPILER $FILES_TO_COMPILE --js_output_file $BUILDPATH//kinout-$VERSION.js
