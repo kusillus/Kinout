@@ -15,8 +15,8 @@ KINOUT.Url = ((knt, undefined_) ->
     ###
     read = ->
         bits = window.location.hash.slice(2).split("/")
-        indexh = (if bits[0] then parseInt(bits[0]) else 0)
-        indexv = (if bits[1] then parseInt(bits[1]) else 0)
+        indexh = parseInt(bits[0]) || 0
+        indexv = parseInt(bits[1]) || 0
         knt.View.slide indexh, indexv
         return
 
@@ -26,8 +26,8 @@ KINOUT.Url = ((knt, undefined_) ->
     ###
     write = (horizontal_idx, vertical_idx) ->
         url = "/"
-        url += horizontal_idx  if horizontal_idx > 0 or vertical_idx > 0
-        url += "/" + vertical_idx  if vertical_idx > 0
+        url += horizontal_idxif horizontal_idx > 0 or vertical_idx > 0
+        url += "/" + vertical_idx if vertical_idx > 0
         window.location.hash = url
         return
 
